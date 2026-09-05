@@ -1,6 +1,6 @@
 # Enroot — Overview
 
-## What this is
+## What this is -
 
 Enroot is an attempt to get a Chiral-style Linux userland (built LFS/BLFS-methodology, cross-compiled) running **inside a PRoot namespace on Android**, with no reboot, no root, and no real kernel handoff. It picks up where the LFS Cross Edition stops — that project cross-compiles a temp toolchain and then reboots into the target on real hardware. Enroot needs a different ending, because there's no "target hardware" to reboot into: just Termux's PRoot sandbox on top of Android's existing kernel.
 
