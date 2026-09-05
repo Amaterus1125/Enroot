@@ -1,4 +1,4 @@
-# Package 07 — GCC (Pass 2, final cross-compiler)
+# Package 007 — GCC (Pass 2, final cross-compiler)
 
 **Why:** The final compiler — once this installs cleanly, the toolchain phase (Section 0) is done, and every subsequent package compiles using this compiler instead of the bootstrap Pass 1 one.
 
