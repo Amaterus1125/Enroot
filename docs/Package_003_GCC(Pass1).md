@@ -1,4 +1,4 @@
-# Package 02 — GCC (Pass 1)
+# Package 003 — GCC (Pass 1)
 
 **Why:** Builds a cross-compiler targeting `aarch64-linux-gnu`, without a C library yet — just enough to compile Glibc next. A second GCC pass happens later once Glibc exists.
 
