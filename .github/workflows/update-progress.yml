@@ -1,0 +1,41 @@
+name: Update Progress Log
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - '!PROGRESS.md'      # don't trigger on the bot's own commit — avoids an infinite loop
+  workflow_dispatch: {}       # lets you also run this manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate PROGRESS.md
+        run: python3 scripts/generate_progress.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "progress-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add PROGRESS.md
+          if git diff --cached --quiet; then
+            echo "No changes to PROGRESS.md — skipping commit"
+          else
+            git commit -m "chore: auto-update PROGRESS.md [skip ci]"
+            git push
+          fi
