@@ -60,8 +60,8 @@ def has_commit_checkpoint(text: str) -> bool:
 
 
 def count_known_issues(text: str) -> int:
-    # Counts documented warning/known-issue callouts (⚠️ headers or "Known issue" headers)
-    warning_headers = re.findall(r"^##\s*⚠️.*$", text, re.MULTILINE)
+    # Counts documented warning/known-issue callouts ( headers or "Known issue" headers)
+    warning_headers = re.findall(r"^##\s*.*$", text, re.MULTILINE)
     known_issue_headers = re.findall(r"^##.*Known [Ii]ssue.*$", text, re.MULTILINE)
     return len(warning_headers) + len(known_issue_headers)
 
@@ -101,7 +101,7 @@ def build_progress_markdown(entries):
     lines.append("|---|------|-------|----------------|------------|--------------|------|")
 
     for e in entries:
-        doc_mark = "✅" if e["documented"] else "⬜"
+        doc_mark = "" if e["documented"] else "⬜"
         lines.append(
             f"| {e['num']:02d} | `{e['relpath']}` | {e['title']} | {e['why']} | "
             f"{doc_mark} | {e['known_issues']} | {e['next']} |"
@@ -110,7 +110,7 @@ def build_progress_markdown(entries):
     lines.append("")
     lines.append("## Legend")
     lines.append("- **Documented** — the file has a `## Commit checkpoint` section, meaning the step was actually carried out and verified, not just planned.")
-    lines.append("- **Known Issues** — count of `⚠️` or \"Known issue\" callouts in that file, i.e. real bugs hit and fixed during that step.")
+    lines.append("- **Known Issues** — count of `` or \"Known issue\" callouts in that file, i.e. real bugs hit and fixed during that step.")
 
     return "\n".join(lines) + "\n"
 
