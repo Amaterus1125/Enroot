@@ -1,4 +1,4 @@
-# Package 04 — Glibc
+# Package 004 — Glibc
 
 **Why:** The actual C library everything else in the ARM64 system links against. GCC Pass 1 was deliberately built minimal (`--without-headers`, `--with-newlib`, static-only) specifically so it could compile this next.
 
