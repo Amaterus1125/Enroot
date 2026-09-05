@@ -61,4 +61,4 @@ Enroot does not reproduce book content verbatim — it documents the additional/
 
 ## License
 
-TBD — likely MIT for scripts/docs here; upstream LFS content stays under its own license (CC BY-NC-SA / MIT per package).
+GPL-3.0
