@@ -1,4 +1,4 @@
-# Package 01 — Binutils (Pass 1)
+# Package 002 — Binutils (Pass 1)
 
 **Why first (after headers):** Both Glibc and GCC test the available linker/assembler during their own configure steps to decide which features to enable. Binutils has to exist before either can be built.
 
