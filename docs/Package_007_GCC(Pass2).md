@@ -36,7 +36,7 @@ export LD_FOR_TARGET=$LFS/tools/bin/aarch64-linux-gnu-ld
     --disable-fixincludes
 ```
 
-## ⚠️ Critical flag: `--target=$LFS_TGT` must be present, not just `--host`/`--build`
+## Critical flag: `--target=$LFS_TGT` must be present, not just `--host`/`--build`
 
 This is the single most important line in this whole file. If `--target=$LFS_TGT` is missing (only `--host` and `--build` set), GCC's target-tool auto-detection breaks, and the build silently falls back to using the **host's native `as`** instead of the cross-assembler — even though the correct `aarch64-linux-gnu-as` binary exists and works fine on its own.
 
@@ -109,7 +109,7 @@ Piping through `tail -80` on any failure (rather than scrolling hundreds of line
 make DESTDIR=$LFS install
 ```
 
-## ⚠️ Critical: `--prefix=/usr` only means the right thing with `DESTDIR=$LFS`
+## Critical: `--prefix=/usr` only means the right thing with `DESTDIR=$LFS`
 
 `--prefix=/usr` in the configure step above is only correct **because** install is run with `DESTDIR=$LFS` — that combination redirects the install target into `$LFS/usr/...`. If `make install` is ever run **without** `DESTDIR=$LFS` on this same build (outside a chroot, on the host), `--prefix=/usr` points at the **host's real `/usr`**, and the install will either:
 - fail with `Permission denied` (the expected, safe outcome for a non-root user — this is the system correctly refusing to let a cross-build touch the real OS), or
