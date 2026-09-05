@@ -1,4 +1,4 @@
-# Package 00 — Linux Kernel Headers
+# Package 001 — Linux Kernel Headers
 
 **Why:** Not compiled — just extracted and installed into the build tree. The cross-compiler needs to know the target's syscall interface before anything else can be built against it.
 
