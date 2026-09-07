@@ -2,7 +2,7 @@
 
 This project involves building a Linux system completely from source code — not installing a distro, but actually compiling the pieces that make one up. That means the setup requirements are a bit different from normal software projects. This doc explains what you need and why, in plain terms.
 
-## 1. A real laptop or desktop — not just a VM on a low-power machine
+## 1. A real laptop or desktop and do not use just a VM on a low-power machine
 
 You need an actual computer you can install Linux on, not just a phone or tablet. Why this matters:
 
@@ -11,7 +11,7 @@ You need an actual computer you can install Linux on, not just a phone or tablet
 
 **Minimum realistic specs:**
 - 4GB RAM (works, but expect some steps to be slow — see the swap note below)
-- 8GB+ RAM if you can manage it — noticeably smoother
+- 8GB+ RAM if you can manage it — noticeably smoother (I am using 4GB RAM so it is taking much more time than it should, that's why you should use a less RAM consuming Distro)
 - At least **50GB of free disk space** — the build environment alone uses a 40GB image file, plus space for the OS itself and downloaded source code
 
 If your machine only has 4GB RAM, it's still doable — just add a swapfile (a chunk of disk space the system can use as overflow memory) before starting the bigger builds. This gets mentioned again later in the actual package build files where it matters most.
