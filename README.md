@@ -1,5 +1,5 @@
 <div align="center">
-# Enroot
+# ***Enroot***
 
 **Cross-compiled Linux From Scratch, adapted for PRoot targets (no reboot, no root).**
 
