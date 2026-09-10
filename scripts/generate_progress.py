@@ -50,7 +50,7 @@ def extract_why(text: str) -> str:
     m = re.search(r"\*\*Why[^:]*:\*\*\s*(.+)", text)
     if m:
         line = m.group(1).strip()
-        # trim to a reasonable summary length
+
         return (line[:140] + "…") if len(line) > 140 else line
     return "—"
 
