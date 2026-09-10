@@ -71,7 +71,7 @@ def extract_next(text: str) -> str:
     if not m:
         return "—"
     next_text = m.group(1).strip()
-    # pull out a backtick-quoted filename if present, otherwise first line
+
     fm = re.search(r"`([^`]+)`", next_text)
     if fm:
         return fm.group(1)
