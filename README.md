@@ -1,4 +1,4 @@
-#  Enroot - Mobile Termux for Linux (LFS)
+#  Enroot - Mobile Termux plus Linux (LFS)
 
 **Cross-compiled Linux From Scratch, adapted for PRoot targets (no reboot, no root).**
 
