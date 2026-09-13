@@ -1,6 +1,6 @@
 #  Enroot - Mobile Termux plus Linux (LFS)
 
-**Cross-compiled Linux From Scratch, adapted for PRoot targets (no reboot, no root).**
+**Cross-compiled Linux From Scratch (CLFS), adapted for PRoot targets (no reboot, no root).**
 
 Enroot picks up where mainline Cross Linux From Scratch and the [LFS Cross Edition](https://www.linuxfromscratch.org/~xry111/lfs/view/clfs-ng-systemd/) leave off. Both assume you can reboot into the target system once the temporary toolchain is built. On Android under Termux/PRoot, that assumption breaks — there's no kernel handoff, no bootloader, no root. Enroot documents and scripts the path from "cross-compiled toolchain" to "usable userland running under PRoot," which nothing else currently covers.
 
