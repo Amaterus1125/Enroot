@@ -4,7 +4,7 @@
 
 **Why:** First package in Section 1 (temporary/base tools) — no more toolchain bootstrapping from here, just ordinary packages built against the now-finished cross-compiler, following `--host=$LFS_TGT` throughout.
 
-## ⚠️ Which compiler this uses — read before running anything
+## ⚠️ Which compiler this uses — read before running anything because you can loose your system and it is a very niche project soo you may not find the solutions later.
 
 There are **two** `aarch64-linux-gnu-gcc` binaries on this system now, and using the wrong one breaks things silently:
 
