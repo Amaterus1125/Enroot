@@ -66,4 +66,4 @@ Enroot does not reproduce book content verbatim — it documents the additional/
 
 ## License
 
-GPL-3.0
+Creative Commons Legal Code
