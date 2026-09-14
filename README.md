@@ -40,12 +40,12 @@ Enroot is not a fork of the LFS book — it's a **continuation** for a different
 enroot/
 ├── README.md
 ├── docs/
-│   ├── 00-overview.md          # why this exists, how it differs from Cross Edition
-│   ├── 01-toolchain.md         # cross-compile phase, references upstream LFS steps
-│   ├── 02-target-divergence.md # exact point where Enroot deviates from reboot-based CLFS
-│   ├── 03-proot-userland.md    # building the PRoot-executable rootfs
-│   ├── 04-init-elogind.md      # elogind setup, D-Bus session handling
-│   └── 05-xfce-under-proot.md  # desktop environment specifics, known breakage
+│   ├── ALL_STARTS_HERE.md          # why this exists, how it differs from Cross Edition and how can you set it up 
+│   ├── Enviornment-Setup.md         # cross-compile phase, references upstream LFS steps
+│   ├── Overview_Main.md             # exact point where Enroot deviates from reboot-based CLFS
+│   ├──Package_001_Linux_Headers(000).md    # BUILDING THE LINUX KERNEL
+│   ├── ALL THE OTHER REMAINING PACKAGES 
+│   
 ├── scripts/
 │   ├── build-toolchain.sh
 │   ├── build-temp-system.sh
