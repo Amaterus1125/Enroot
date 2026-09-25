@@ -27,3 +27,10 @@ cd bash-build
 ```
 configure: WARNING: unrecognized options: --without-man
 ```
+Bash's `configure` script doesn't have that specific flag — not every package uses the same flag names for disabling manpages. It's silently ignored, and configure still completes all the way through (`creating Makefile`, `creating config.h`, ... `executing stamp-h commands`). Configure succeeded despite the warning.
+ 
+Also confirms `using libncursesw` in the configure tail — Ncurses from the previous step is being found correctly by this build.
+ 
+Manpages won't build by default in this minimal `make install` anyway, since `make install-doc` (or similar) is never run separately — the outcome is the same with or without the flag.
+ 
+## 2. Build
