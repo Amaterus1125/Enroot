@@ -19,3 +19,11 @@ cd ncurses-6.6
 ## 2. Build a native `tic` first
  
 Ncurses needs a small trick for cross-compiles — it has to build a native (host) copy of its own code-generation tool first, since it can't run the ARM64 one during its own build:
+```bash
+mkdir -v build-aux
+pushd build-aux
+    ../configure
+    make -C include
+    make -C progs tic
+popd
+```
