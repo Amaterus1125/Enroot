@@ -73,3 +73,8 @@ find $LFS/usr/bin -name "tic"
 ```
  
 Confirmed output: `libncursesw.so.6`, `libncursesw.so.6.6`, and the dev symlink `libncursesw.so` all landed in `$LFS/usr/lib`. 1861 terminfo entries installed. Clean finish.
+## Known note — built as `libncursesw`, not `libncurses`
+ 
+This is the wide-character/unicode variant, not the plain name. Some later packages expect the plain `libncurses` name — if that comes up, it's a simple symlink fix, not a real problem. Flagging now so it's not confusing if it surfaces in a future package's configure step.
+ 
+## Commit checkpoint
