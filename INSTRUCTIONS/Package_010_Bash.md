@@ -52,3 +52,11 @@ find $LFS/bin $LFS/usr/bin -name "bash"
 ```
  
 ## Commit checkpoint
+
+1. `docs: add bash build notes, --without-man unrecognized-flag warning explained`
+2. `build: bash-5.3 compiled for aarch64-linux-gnu, linked against libncursesw`
+3. `install: bash installed to $LFS/usr/bin, verified via find`
+## Next
+ 
+Move to the next Section 1 package in the build order file.
+ 
