@@ -27,3 +27,49 @@ pushd build-aux
     make -C progs tic
 popd
 ```
+## 3. Configure the real cross-compiled build (no manpages)
+ 
+Manpage generation disabled on every package going forward, per standing preference:
+ 
+```bash
+mkdir -v build
+cd build
+ 
+../configure \
+    --prefix=/usr \
+    --host=$LFS_TGT \
+    --build=$(../config.guess) \
+    --without-manpages \
+    --without-progs \
+    --without-normal \
+    --with-shared \
+    --with-cxx-shared \
+    --without-debug \
+    --without-ada \
+    --disable-stripping \
+    --with-build-cc=gcc \
+    --with-build-cpp=cpp
+```
+ 
+## 4. Build
+ 
+```bash
+make -j2
+```
+ 
+## 5. Install
+ 
+Note the `TIC_PATH` on install — this points the install step at the **native** `tic` binary built in `build-aux/`, so it can generate terminfo data during install without trying to run the ARM64 binary on the x86_64 host:
+ 
+```bash
+make DESTDIR=$LFS TIC_PATH=$(pwd)/../build-aux/progs/tic install
+```
+ 
+## Verify
+ 
+```bash
+find $LFS/usr/lib -iname "*ncurses*"
+find $LFS/usr/bin -name "tic"
+```
+ 
+Confirmed output: `libncursesw.so.6`, `libncursesw.so.6.6`, and the dev symlink `libncursesw.so` all landed in `$LFS/usr/lib`. 1861 terminfo entries installed. Clean finish.
