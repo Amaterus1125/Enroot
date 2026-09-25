@@ -78,3 +78,11 @@ Confirmed output: `libncursesw.so.6`, `libncursesw.so.6.6`, and the dev symlink 
 This is the wide-character/unicode variant, not the plain name. Some later packages expect the plain `libncurses` name — if that comes up, it's a simple symlink fix, not a real problem. Flagging now so it's not confusing if it surfaces in a future package's configure step.
  
 ## Commit checkpoint
+ 
+1. `build: ncurses-6.6 native build-aux tic built for host`
+2. `build: ncurses-6.6 cross-compiled for aarch64-linux-gnu (manpages disabled)`
+3. `install: ncurses installed to $LFS/usr/lib via TIC_PATH, verified libncursesw + terminfo`
+## Next
+ 
+Move to Bash (Section 1, step 14) — confirm `m4` and `ncurses` are both installed before starting, since Bash's configure will detect and link against `libncursesw` from this step.
+ 
