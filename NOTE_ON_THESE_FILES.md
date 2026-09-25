@@ -7,3 +7,7 @@ I don't currently know how to build a proper XML file structure for this documen
 **⚠️ That applies to the write-up only — not the commands.**
  
 Every command, build step, and fix documented in these files was actually run on this system and **worked, end to end.** Nothing here is speculative or copy-pasted without verification:
+- All `configure` / `make` / `make install` steps were executed for real.
+- Every "Known issue" section documents a problem that actually occurred, with the fix that actually resolved it (confirmed, not assumed).
+- Every "Verify" section reflects real command output that was checked before moving on.
+So: **wording = AI-assisted, code/steps = human-tested and working.**
