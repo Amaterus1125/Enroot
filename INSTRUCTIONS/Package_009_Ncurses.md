@@ -16,3 +16,6 @@ wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.6.tar.gz
 tar xf ncurses-6.6.tar.gz
 cd ncurses-6.6
 ```
+## 2. Build a native `tic` first
+ 
+Ncurses needs a small trick for cross-compiles — it has to build a native (host) copy of its own code-generation tool first, since it can't run the ARM64 one during its own build:
