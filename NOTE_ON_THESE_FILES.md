@@ -11,3 +11,8 @@ Every command, build step, and fix documented in these files was actually run on
 - Every "Known issue" section documents a problem that actually occurred, with the fix that actually resolved it (confirmed, not assumed).
 - Every "Verify" section reflects real command output that was checked before moving on.
 So: **wording = AI-assisted, code/steps = human-tested and working.**
+
+## TODO
+ 
+- [ ] Convert build docs to a proper XML structure
+- [ ] Keep this note updated as more packages are documented
