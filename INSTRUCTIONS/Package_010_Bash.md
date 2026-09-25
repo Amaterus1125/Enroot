@@ -34,3 +34,21 @@ Also confirms `using libncursesw` in the configure tail — Ncurses from the pre
 Manpages won't build by default in this minimal `make install` anyway, since `make install-doc` (or similar) is never run separately — the outcome is the same with or without the flag.
  
 ## 2. Build
+```bash
+cd $LFS/sources/bash-build
+make -j2
+```
+ 
+## 3. Install
+ 
+```bash
+make DESTDIR=$LFS install
+```
+ 
+## Verify
+ 
+```bash
+find $LFS/bin $LFS/usr/bin -name "bash"
+```
+ 
+## Commit checkpoint
