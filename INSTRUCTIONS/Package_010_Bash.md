@@ -21,3 +21,9 @@ cd bash-build
     --disable-nls \
     --without-man
 ```
+## Known issue — `unrecognized options: --without-man` warning (harmless, not an error)
+ 
+**Symptom:**
+```
+configure: WARNING: unrecognized options: --without-man
+```
