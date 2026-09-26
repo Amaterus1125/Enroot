@@ -30,3 +30,17 @@ cd $LFS/sources/coreutils-9.10
 patch -Np1 -i ../coreutils-9.10-i18n-1.patch
 ```
 Confirm clean application — should show `patching file ...` lines with **no** `FAILED` or `.rej` mentions anywhere in the output.
+### 2. Configure
+ 
+```bash
+mkdir -v build
+cd build
+ 
+../configure \
+    --prefix=/usr \
+    --host=$LFS_TGT \
+    --build=$(../build-aux/config.guess) \
+    --enable-install-program=hostname \
+    --enable-no-install-program=kill,uptime \
+    gl_cv_macro_MB_CUR_MAX_good=yes
+```
