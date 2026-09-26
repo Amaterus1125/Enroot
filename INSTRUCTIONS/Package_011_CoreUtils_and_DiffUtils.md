@@ -44,3 +44,14 @@ cd build
     --enable-no-install-program=kill,uptime \
     gl_cv_macro_MB_CUR_MAX_good=yes
 ```
+
+**Flag notes:**
+- `--enable-install-program=hostname` — Coreutils doesn't install `hostname` by default; this turns it on.
+- `--enable-no-install-program=kill,uptime` — these two overlap with versions provided by other packages later in the build (procps-ng), so they're deliberately excluded here to avoid a conflict.
+- `gl_cv_macro_MB_CUR_MAX_good=yes` — a cross-compile cache override, same category of fix as the ones seen in Diffutils below (a runtime-behavior check `configure` can't actually execute during a cross build, so the known-good answer is asserted directly).
+### 3. Build and install
+ 
+```bash
+make -j2
+make DESTDIR=$LFS install
+```
