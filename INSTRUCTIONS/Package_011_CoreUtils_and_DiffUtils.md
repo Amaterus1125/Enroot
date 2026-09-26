@@ -120,3 +120,18 @@ rm -rf *
 make -j2
 make DESTDIR=$LFS install
 ```
+
+`CPPFLAGS="-include linux/limits.h"` forces every source file in the build to have `linux/limits.h` (which unconditionally defines `PATH_MAX 4096`) included before anything else — no need to hand-patch individual `.c` files.
+ 
+### ✅ Permanent fix — stop hitting this on every future package
+ 
+Given this has now recurred three separate times (Binutils Pass 2, M4, Diffutils), it's worth fixing globally instead of per-package:
+ 
+```bash
+export CPPFLAGS="-include linux/limits.h"
+echo 'export CPPFLAGS="-include linux/limits.h"' >> ~/arm64-build-env.sh
+source ~/arm64-build-env.sh
+```
+ 
+This is now a **permanent addition to the build environment** (`arm64-build-env.sh`, alongside `$LFS`, `$LFS_TGT`, `$PATH`) — every subsequent package's `configure`/`make` picks this up automatically for the rest of the project. If updating `00-environment-setup.md`, add this export there too so the environment file stays the single source of truth for the whole build setup.
+ 
