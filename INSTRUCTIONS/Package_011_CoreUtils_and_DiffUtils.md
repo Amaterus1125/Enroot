@@ -55,3 +55,13 @@ cd build
 make -j2
 make DESTDIR=$LFS install
 ```
+### 4. Verify
+ 
+```bash
+find $LFS/usr/bin -name "ls"
+find $LFS/usr/bin -name "cat"
+```
+ 
+---
+ 
+## Part B — Diffutils (Section 1, step 16)
