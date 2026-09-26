@@ -105,3 +105,18 @@ Diffutils sometimes surfaces 2-3 of these `gl_cv_*` cross-compile checks in a ro
 **Symptom:** build fails referencing `PATH_MAX` undeclared, in a diffutils source file this time.
  
 **Do not** hardcode `4096` directly into the specific source file that failed — that's fragile and only patches one occurrence; this exact symptom already showed up in Binutils Pass 2 and M4, confirming it's a **recurring symptom of one root cause**: this sysroot's `limits.h` header chain still doesn't reliably expose `PATH_MAX` everywhere it's expected.
+ 
+**Better fix — solve it at the compiler-flag level for this whole package:**
+ 
+```bash
+rm -rf *
+../diffutils-3.12/configure \
+    --prefix=/usr \
+    --host=$LFS_TGT \
+    --build=$(../diffutils-3.12/build-aux/config.guess) \
+    gl_cv_func_strcasecmp_works=yes \
+    CPPFLAGS="-include linux/limits.h"
+ 
+make -j2
+make DESTDIR=$LFS install
+```
