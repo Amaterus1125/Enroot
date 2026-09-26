@@ -95,3 +95,13 @@ rm -rf *
     --build=$(../diffutils-3.12/build-aux/config.guess) \
     gl_cv_func_strcasecmp_works=yes
 ```
+ 
+Safe to assume `yes` here: this check only exists to catch broken libc implementations on obscure/legacy platforms, and the target here is a standard, modern glibc (2.43) — well past any risk this test is meant to catch.
+ 
+Diffutils sometimes surfaces 2-3 of these `gl_cv_*` cross-compile checks in a row — check the full configure tail for any others before moving on, not just the first one hit.
+ 
+### ⚠️ Known issue 2 — `PATH_MAX` undeclared (same recurring root cause as Binutils Pass 2 and M4)
+ 
+**Symptom:** build fails referencing `PATH_MAX` undeclared, in a diffutils source file this time.
+ 
+**Do not** hardcode `4096` directly into the specific source file that failed — that's fragile and only patches one occurrence; this exact symptom already showed up in Binutils Pass 2 and M4, confirming it's a **recurring symptom of one root cause**: this sysroot's `limits.h` header chain still doesn't reliably expose `PATH_MAX` everywhere it's expected.
