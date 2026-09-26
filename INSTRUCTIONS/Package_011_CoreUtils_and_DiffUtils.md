@@ -156,6 +156,6 @@ find $LFS/usr/bin -name "cmp"
 5. `fix: PATH_MAX undeclared (recurring, 3rd occurrence) — CPPFLAGS=-include linux/limits.h made permanent in arm64-build-env.sh`
 6. `build: diffutils 3.12 cross-compiled + installed, diff/cmp verified`
 ## Next
- 
-Section 1 in the build order file. The `CPPFLAGS` export is now permanent — no need to re-add it to future package configure lines individually.
+
+ Next section in the build order file. The `CPPFLAGS` export is now permanent so no need to re-add it to future package configure lines individually if u did it completly.
  
