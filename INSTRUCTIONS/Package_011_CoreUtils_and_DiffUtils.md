@@ -29,3 +29,4 @@ cp /sources/coreutils-9.10-i18n-1.patch $LFS/sources/
 cd $LFS/sources/coreutils-9.10
 patch -Np1 -i ../coreutils-9.10-i18n-1.patch
 ```
+Confirm clean application — should show `patching file ...` lines with **no** `FAILED` or `.rej` mentions anywhere in the output.
