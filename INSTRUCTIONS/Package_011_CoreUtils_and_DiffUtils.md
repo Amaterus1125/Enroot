@@ -135,3 +135,27 @@ source ~/arm64-build-env.sh
  
 This is now a **permanent addition to the build environment** (`arm64-build-env.sh`, alongside `$LFS`, `$LFS_TGT`, `$PATH`) — every subsequent package's `configure`/`make` picks this up automatically for the rest of the project. If updating `00-environment-setup.md`, add this export there too so the environment file stays the single source of truth for the whole build setup.
  
+
+**Note:** the actual root cause (why the sysroot's `limits.h` chain doesn't reliably resolve `PATH_MAX`) is still not fully diagnosed — this is a confirmed-working global bypass, not a fix to the underlying header issue. Worth a proper investigation at some point, but not blocking progress.
+ 
+### 2. Verify
+ 
+```bash
+find $LFS/usr/bin -name "diff"
+find $LFS/usr/bin -name "cmp"
+```
+ 
+---
+ 
+## Commit checkpoint
+ 
+1. `docs: add coreutils build notes, i18n patch applied`
+2. `build: coreutils 9.10 cross-compiled for aarch64-linux-gnu, patched`
+3. `install: coreutils installed to $LFS/usr/bin, ls/cat verified`
+4. `docs: add diffutils build notes, strcasecmp + PATH_MAX cross-compile fixes`
+5. `fix: PATH_MAX undeclared (recurring, 3rd occurrence) — CPPFLAGS=-include linux/limits.h made permanent in arm64-build-env.sh`
+6. `build: diffutils 3.12 cross-compiled + installed, diff/cmp verified`
+## Next
+ 
+Section 1 in the build order file. The `CPPFLAGS` export is now permanent — no need to re-add it to future package configure lines individually.
+ 
