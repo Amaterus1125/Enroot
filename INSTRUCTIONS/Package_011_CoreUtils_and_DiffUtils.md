@@ -22,3 +22,10 @@ Coreutils needs `coreutils-9.10-i18n-1.patch` per the build-order file. LFS-book
 ```bash
 find / -iname "coreutils-9.10-i18n*" 2>/dev/null
 ```
+If found in your original x86_64 BLFS `/sources` (not inside `$LFS`), copy it in and apply:
+ 
+```bash
+cp /sources/coreutils-9.10-i18n-1.patch $LFS/sources/
+cd $LFS/sources/coreutils-9.10
+patch -Np1 -i ../coreutils-9.10-i18n-1.patch
+```
