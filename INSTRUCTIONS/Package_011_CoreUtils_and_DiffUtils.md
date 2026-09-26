@@ -6,7 +6,7 @@ Grouped together because Diffutils' fix directly affects how every package *afte
  
 ---
  
-## Part A — Coreutils (Section 1, step 15)
+## Part A — Coreutils (Section 1)
  
 **Why:** `ls`, `cat`, `cp`, and the rest of the everyday command-line utilities — needed almost immediately by later build steps, not just the final system.
  
@@ -64,4 +64,20 @@ find $LFS/usr/bin -name "cat"
  
 ---
  
-## Part B — Diffutils (Section 1, step 16)
+## Part B — Diffutils (Section 1)
+**Why:** `diff`, `cmp`, and friends.
+ 
+### 1. Fetch, extract, configure
+ 
+```bash
+cd $LFS/sources
+wget https://ftp.gnu.org/gnu/diffutils/diffutils-3.12.tar.xz
+tar xf diffutils-3.12.tar.xz
+mkdir -v diffutils-build
+cd diffutils-build
+ 
+../diffutils-3.12/configure \
+    --prefix=/usr \
+    --host=$LFS_TGT \
+    --build=$(../diffutils-3.12/build-aux/config.guess)
+```
