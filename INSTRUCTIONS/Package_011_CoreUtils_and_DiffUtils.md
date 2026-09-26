@@ -18,3 +18,4 @@ wget https://ftp.gnu.org/gnu/coreutils/coreutils-9.10.tar.xz
 tar xf coreutils-9.10.tar.xz
 cd coreutils-9.10
 ```
+Coreutils needs `coreutils-9.10-i18n-1.patch` per the build-order file. LFS-book patches are version-specific, so check for the exact match rather than grabbing any i18n patch found online:
