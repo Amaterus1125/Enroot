@@ -81,3 +81,17 @@ cd diffutils-build
     --host=$LFS_TGT \
     --build=$(../diffutils-3.12/build-aux/config.guess)
 ```
+### ⚠️ Known issue 1 — `strcasecmp` cross-compile check fails
+ 
+**Symptom:** `configure` errors out because it needs to actually *run* a small compiled test program to check `strcasecmp`'s runtime behavior — impossible during cross-compilation, for the same root reason an ARM64 binary can't execute on the x86_64 host doing the building.
+ 
+**Fix — assert the known-good answer directly**, skipping the runtime test:
+ 
+```bash
+rm -rf *
+../diffutils-3.12/configure \
+    --prefix=/usr \
+    --host=$LFS_TGT \
+    --build=$(../diffutils-3.12/build-aux/config.guess) \
+    gl_cv_func_strcasecmp_works=yes
+```
