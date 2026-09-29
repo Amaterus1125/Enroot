@@ -1,4 +1,4 @@
-# Enroot — Overview
+# Enroot : Overview
 
 ## What this is -
 
@@ -6,7 +6,7 @@ Enroot is an attempt to get a Chiral-style Linux userland (built LFS/BLFS-method
 
 The goal isn't "port LFS to ARM" (that's just an architecture flag). The goal is "make an LFS-built system usable when the thing running it can never own the kernel, never load modules, and never has real root."
 
-## Why this is hard, specifically
+## Why this is soo hard and time consuming, specifically
 
 Everything below assumes normal LFS/BLFS behavior and breaks under PRoot:
 
