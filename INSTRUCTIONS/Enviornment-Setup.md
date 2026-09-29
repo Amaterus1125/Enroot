@@ -2,7 +2,7 @@
 
 Everything that has to exist *before* Package 01 (Linux Headers) can run. This is the actual sequence used to set up `/mnt/arm64lfs`.
 
-## 1. Create the loopback image file
+## 1. Create the loopback image file instead of a disk partition (reccomended)
 
 Instead of a real disk partition, the ARM64 build lives inside a single disposable file — a loopback image. This keeps the entire build state as one portable file, and means a broken build never touches the real system disk.
 
