@@ -1,4 +1,4 @@
-#Build Environment Setup (Loopback Image + Partition + Sources)
+# Build Environment Setup (Loopback Image + Partition + Sources)
 
 Everything that has to exist *before* Package 01 (Linux Headers) can run. This is the actual sequence used to set up `/mnt/arm64lfs`.
 
