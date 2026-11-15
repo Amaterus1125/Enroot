@@ -1,4 +1,4 @@
-#  Enroot - Mobile Termux plus Linux (LFS)
+#  Enroot - Mobile Termux plus Linux (LFS) - PROJECT HAS BEEN SHIFTED TO GROOT AND THIS ONE HAS BEEN ABANDONED 
 
 **Cross-compiled Linux From Scratch (CLFS), adapted for PRoot targets (no reboot, no root).**
 
